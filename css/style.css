@@ -1,6 +1,36 @@
-.setPhoto__Photo{
-  height: 50vh;
-  width: 500px;
-  border: 1px solid grey;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
+body {
+  background-color: #141414;
+}
+
+main {
+  height: 100vh;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50%;
+}
+
+.setPhoto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.4rem;
+  -webkit-perspective: calc((1vw + 1vh) * 35);
+          perspective: calc((1vw + 1vh) * 35);
 }

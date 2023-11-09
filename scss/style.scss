@@ -1,0 +1,27 @@
+@import "var_func";
+@import "mixin";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #141414;
+}
+main{
+  height: 100vh;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  }
+
+.setPhoto{
+  display: flex;
+  gap: .4rem;
+  perspective: calc($index * 35);
+}
