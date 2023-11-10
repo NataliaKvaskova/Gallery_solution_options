@@ -20,4 +20,9 @@
 
 [Посмотреть результат](https://nataliakvaskova.github.io/Gallery_solution_options/ "Нажмите, чтобы открыть страницу")
 
+```mermaid
+%% Для примера пробую сделать схему
 
+graph LR;
+Это блок А -- он связан с блоком --> B
+```
