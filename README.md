@@ -20,12 +20,5 @@
 
 [Посмотреть результат](https://nataliakvaskova.github.io/Gallery_solution_options/ "Нажмите, чтобы открыть страницу")
 
-```mermaid
-graph TD;
-    A--"Эти блоки связаны"-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-    D-->E;
-    D-->A;
-```
+
+q
