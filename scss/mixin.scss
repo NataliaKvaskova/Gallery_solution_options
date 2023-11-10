@@ -1,0 +1,11 @@
+@mixin item {
+  .setPhoto__Photo{
+  background-color: #222;
+  width: calc(#{$index}*3);
+  height: calc(#{$index}*12);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  @content;
+  }
+}

@@ -25,3 +25,14 @@ main{
   gap: .4rem;
   perspective: calc($index * 35);
 }
+
+.set-1{
+  @include item;
+}
+
+.set-2{
+  @include item;
+  transition: transform 1.25s $transition, filter 3s $transition, width 1.25s $transition;
+  will-change: transform, filter;
+  filter: grayscale(1) brightness(.8);
+}

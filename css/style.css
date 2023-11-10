@@ -34,3 +34,30 @@ main {
   -webkit-perspective: calc((1vw + 1vh) * 35);
           perspective: calc((1vw + 1vh) * 35);
 }
+
+.set-1 .setPhoto__Photo {
+  background-color: #222;
+  width: calc(calc(1vw + 1vh)*3);
+  height: calc(calc(1vw + 1vh)*12);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.set-2 {
+  -webkit-transition: width 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-filter 3s cubic-bezier(0.1, 0.7, 0, 1);
+  transition: width 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-filter 3s cubic-bezier(0.1, 0.7, 0, 1);
+  transition: transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), filter 3s cubic-bezier(0.1, 0.7, 0, 1), width 1.25s cubic-bezier(0.1, 0.7, 0, 1);
+  transition: transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), filter 3s cubic-bezier(0.1, 0.7, 0, 1), width 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-filter 3s cubic-bezier(0.1, 0.7, 0, 1);
+  will-change: transform, filter;
+  -webkit-filter: grayscale(1) brightness(0.8);
+          filter: grayscale(1) brightness(0.8);
+}
+.set-2 .setPhoto__Photo {
+  background-color: #222;
+  width: calc(calc(1vw + 1vh)*3);
+  height: calc(calc(1vw + 1vh)*12);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
