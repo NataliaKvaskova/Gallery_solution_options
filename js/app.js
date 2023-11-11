@@ -15,7 +15,7 @@ for (i = 0; i < countSet; i++){
   wrapper.append(div);
     setPhoto.forEach ((photo) =>{
       let strPhotoCard = `
-        <div class = "setPhoto__Photo" style="background-image: url('img/${photo}');"></div>
+        <div class = "setPhoto__Photo" tabindex = "1" style="background-image: url('img/${photo}');"></div>
         `
         div.insertAdjacentHTML("beforeend", strPhotoCard);
     })
