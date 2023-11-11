@@ -24,15 +24,58 @@ main{
   display: flex;
   gap: .4rem;
   perspective: calc($index * 35);
-}
-
-.set-1{
   @include item;
 }
 
 .set-2{
-  @include item;
-  transition: transform 1.25s $transition, filter 3s $transition, width 1.25s $transition;
-  will-change: transform, filter;
-  filter: grayscale(1) brightness(.8);
+  .setPhoto__Photo{
+    transition: transform 1.25s $transition, filter 3s $transition, width 1.25s $transition;
+    will-change: transform, filter;
+    filter: grayscale(1) brightness(.5);
+      @include streak_for_set-2;
+      &::after{
+        left: calc(#{$index}*-1); 
+      }
+
+      &:hover{
+      @include transform(10, 0, 0);
+      }
+
+      &:hover + *{
+      @include transform(8.5, 35deg,-1);
+      }
+
+      &:hover + * + *{
+      @include transform(5.6, 40deg,-2);
+    }
+      &:hover + * + * + *{
+        @include transform(2.4, 30deg, -3);
+      }
+      &:hover + * + * + * + *{
+        @include transform(.6, 14deg, -4);
+      }
+  }
+}
+
+.set-2{
+  .setPhoto__Photo{
+
+    &:has(+ :hover){
+      @include transform(8.5, -35deg, 0);
+    }
+    &:has(+ * + :hover){
+      @include transform(5.6, -40deg, 0);
+    }
+    &:has(+ * + * + :hover){
+      @include transform(2.4, -30deg, 0);
+    }
+    &:has(+ * + * + * + :hover){
+      @include transform(.6, -14deg, 0);
+    }
+    &:active, &:focus{
+      width: 20vw;
+      @include transform(10, 0, 100);
+      margin: 0 .45vh;
+      }
+  }
 }

@@ -1,2 +1,4 @@
-$index: calc(#{1vw} + #{1vh});
+$h: calc(#{1vh}/2);
+$w: calc(#{1vw}/2);
+$index: calc(#{1vw} + #{$h});
 $transition: cubic-bezier(.1, .7, 0, 1);

@@ -31,33 +31,107 @@ main {
   display: -ms-flexbox;
   display: flex;
   gap: 0.4rem;
-  -webkit-perspective: calc((1vw + 1vh) * 35);
-          perspective: calc((1vw + 1vh) * 35);
+  -webkit-perspective: calc((1vw + calc(1vh/2)) * 35);
+          perspective: calc((1vw + calc(1vh/2)) * 35);
 }
-
-.set-1 .setPhoto__Photo {
+.setPhoto .setPhoto__Photo {
   background-color: #222;
-  width: calc(calc(1vw + 1vh)*3);
-  height: calc(calc(1vw + 1vh)*12);
+  width: calc(calc(1vw + calc(1vh/2))*4);
+  height: calc(calc(1vw + calc(1vh/2))*12);
   background-size: cover;
   background-position: center;
   cursor: pointer;
 }
 
-.set-2 {
+.set-2 .setPhoto__Photo {
   -webkit-transition: width 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-filter 3s cubic-bezier(0.1, 0.7, 0, 1);
   transition: width 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-filter 3s cubic-bezier(0.1, 0.7, 0, 1);
   transition: transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), filter 3s cubic-bezier(0.1, 0.7, 0, 1), width 1.25s cubic-bezier(0.1, 0.7, 0, 1);
   transition: transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), filter 3s cubic-bezier(0.1, 0.7, 0, 1), width 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-transform 1.25s cubic-bezier(0.1, 0.7, 0, 1), -webkit-filter 3s cubic-bezier(0.1, 0.7, 0, 1);
   will-change: transform, filter;
-  -webkit-filter: grayscale(1) brightness(0.8);
-          filter: grayscale(1) brightness(0.8);
+  -webkit-filter: grayscale(1) brightness(0.5);
+          filter: grayscale(1) brightness(0.5);
 }
-.set-2 .setPhoto__Photo {
-  background-color: #222;
-  width: calc(calc(1vw + 1vh)*3);
-  height: calc(calc(1vw + 1vh)*12);
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
+.set-2 .setPhoto__Photo::before, .set-2 .setPhoto__Photo::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  right: calc(calc(1vw + calc(1vh/2))*-1);
+}
+.set-2 .setPhoto__Photo::after {
+  left: calc(calc(1vw + calc(1vh/2))*-1);
+}
+.set-2 .setPhoto__Photo:hover {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 10)) rotateY(0);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 10)) rotateY(0);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: 0;
+}
+.set-2 .setPhoto__Photo:hover + * {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 8.5)) rotateY(35deg);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 8.5)) rotateY(35deg);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: -1;
+}
+.set-2 .setPhoto__Photo:hover + * + * {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 5.6)) rotateY(40deg);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 5.6)) rotateY(40deg);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: -2;
+}
+.set-2 .setPhoto__Photo:hover + * + * + * {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 2.4)) rotateY(30deg);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 2.4)) rotateY(30deg);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: -3;
+}
+.set-2 .setPhoto__Photo:hover + * + * + * + * {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 0.6)) rotateY(14deg);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 0.6)) rotateY(14deg);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: -4;
+}
+
+.set-2 .setPhoto__Photo:has(+ :hover) {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 8.5)) rotateY(-35deg);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 8.5)) rotateY(-35deg);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: 0;
+}
+.set-2 .setPhoto__Photo:has(+ * + :hover) {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 5.6)) rotateY(-40deg);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 5.6)) rotateY(-40deg);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: 0;
+}
+.set-2 .setPhoto__Photo:has(+ * + * + :hover) {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 2.4)) rotateY(-30deg);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 2.4)) rotateY(-30deg);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: 0;
+}
+.set-2 .setPhoto__Photo:has(+ * + * + * + :hover) {
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 0.6)) rotateY(-14deg);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 0.6)) rotateY(-14deg);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: 0;
+}
+.set-2 .setPhoto__Photo:active, .set-2 .setPhoto__Photo:focus {
+  width: 20vw;
+  -webkit-transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 10)) rotateY(0);
+          transform: translateZ(calc(calc(1vw + calc(1vh/2)) * 10)) rotateY(0);
+  -webkit-filter: inherit;
+          filter: inherit;
+  z-index: 100;
+  margin: 0 0.45vh;
 }
