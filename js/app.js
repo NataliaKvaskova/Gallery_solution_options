@@ -7,6 +7,10 @@ for(let i = 0; i < countPhotoSet; i++){
 let main = document.querySelector('main');
 
 for (i = 0; i < countSet; i++){
+  let h = document.createElement ('h3');
+  h.classList.add(`h-${i+1}`);
+  h.textContent = "zagolovok"
+  main.append(h);
   let wrapper = document.createElement ('div');
   wrapper.classList.add("wrapper");
   main.append(wrapper);
@@ -21,6 +25,7 @@ for (i = 0; i < countSet; i++){
     })
 }
 
-
+document.querySelector(".h-1").textContent = "Вариант - 1. Карусель фотографий с анимацией при наведении курсора мыши.";
+document.querySelector(".h-2").textContent = "Вариант - 2. Карусель фотографий с анимацией волны при движении курсора мыши и нажатии на фото.";
 
 
