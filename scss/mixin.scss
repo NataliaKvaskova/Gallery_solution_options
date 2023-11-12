@@ -1,13 +1,13 @@
-@mixin item {
-  .setPhoto__Photo{
+@mixin set-2_setPhoto__Photo {
   background-color: #222;
   width: calc(#{$index}*4);
   height: calc(#{$index}*12);
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  @content;
-  }
+  transition: transform 1.25s $transition, filter 3s $transition, width 1.25s $transition;
+  will-change: transform, filter;
+  filter: grayscale(1) brightness(.5);
 }
 
 @mixin streak_for_set-2{
@@ -17,7 +17,9 @@
       width:30px;
       height: 100%;
       right: calc(#{$index}*-1);
-      @content;
+    }
+    &::after{
+      left: calc(#{$index}*-1); 
     }
   }
 
@@ -26,3 +28,33 @@
     filter: inherit;
     z-index: $z_index;
   }
+
+@mixin set-2_lef_cards{
+    &:has(+ :hover){
+      @include transform(8.5, -35deg, 0);
+    }
+    &:has(+ * + :hover){
+      @include transform(5.6, -40deg, 0);
+    }
+    &:has(+ * + * + :hover){
+      @include transform(2.4, -30deg, 0);
+    }
+    &:has(+ * + * + * + :hover){
+      @include transform(.6, -14deg, 0);
+    }
+}
+
+@mixin set-2_right_cards{
+    &:hover + *{
+    @include transform(8.5, 35deg,-1);
+    }
+    &:hover + * + *{
+    @include transform(5.6, 40deg,-2);
+    }
+    &:hover + * + * + *{
+      @include transform(2.4, 30deg, -3);
+    }
+    &:hover + * + * + * + *{
+      @include transform(.6, 14deg, -4);
+    }
+}

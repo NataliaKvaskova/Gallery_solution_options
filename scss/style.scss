@@ -10,9 +10,17 @@ body{
   background-color: #141414;
 }
 main{
-  height: 100vh;
+  height: 95vh;
 }
-
+h3{
+  text-align: left;
+  font-family: monospace;
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: white;
+  padding-top: 1rem;
+  padding-left: 5rem;
+}
 .wrapper{
   display: flex;
   justify-content: center;
@@ -22,56 +30,40 @@ main{
 
 .setPhoto{
   display: flex;
+  width: 70%;
+  height: 80%;
   gap: .4rem;
   perspective: calc($index * 35);
-  @include item;
 }
 
-.set-2{
+.set-1{
+  height: calc(#{$index}*15);
   .setPhoto__Photo{
-    transition: transform 1.25s $transition, filter 3s $transition, width 1.25s $transition;
-    will-change: transform, filter;
-    filter: grayscale(1) brightness(.5);
-      @include streak_for_set-2;
-      &::after{
-        left: calc(#{$index}*-1); 
-      }
-
-      &:hover{
-      @include transform(10, 0, 0);
-      }
-
-      &:hover + *{
-      @include transform(8.5, 35deg,-1);
-      }
-
-      &:hover + * + *{
-      @include transform(5.6, 40deg,-2);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: all 500ms ease-in-out;
+    flex: 1;
+    cursor: pointer;
+    @include streak_for_set-2;
+    &:hover{
+      flex: 10;
     }
-      &:hover + * + * + *{
-        @include transform(2.4, 30deg, -3);
-      }
-      &:hover + * + * + * + *{
-        @include transform(.6, 14deg, -4);
-      }
   }
 }
-
 .set-2{
   .setPhoto__Photo{
+    @include set-2_setPhoto__Photo;
+    @include streak_for_set-2;
+      
+    &:hover{
+    @include transform(10, 0, 0);
+    }
 
-    &:has(+ :hover){
-      @include transform(8.5, -35deg, 0);
-    }
-    &:has(+ * + :hover){
-      @include transform(5.6, -40deg, 0);
-    }
-    &:has(+ * + * + :hover){
-      @include transform(2.4, -30deg, 0);
-    }
-    &:has(+ * + * + * + :hover){
-      @include transform(.6, -14deg, 0);
-    }
+    @include set-2_lef_cards;
+    @include set-2_right_cards;
+
     &:active, &:focus{
       width: 20vw;
       @include transform(10, 0, 100);
@@ -79,3 +71,4 @@ main{
       }
   }
 }
+
